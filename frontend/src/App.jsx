@@ -13,7 +13,7 @@ import SearchHistoryPage from "./pages/SearchHistoryPage";
 
 import { useAuthStore } from "./store/authUser";
 import NotFoundPage from "./pages/NotFoundPage";
-// import ActorPage from "./pages/ActorPage";
+import Actorpage from "./pages/Actorpage";
 
 function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
@@ -48,10 +48,10 @@ function App() {
           path="/watch/:id"
           element={user ? <WatchPage /> : <Navigate to={"/login"} />}
         />
-        {/* <Route
-          path="/actor/:name"
-          element={user ? <ActorPage /> : <Navigate to={"/login"} />}
-        /> */}
+        <Route
+          path="/actor/:id"
+          element={user ? <Actorpage /> : <Navigate to={"/login"} />}
+        />
 
         <Route
           path="/search"

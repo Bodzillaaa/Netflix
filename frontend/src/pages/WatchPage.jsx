@@ -220,7 +220,6 @@ const WatchPage = () => {
                   </Link>
                 );
               })}
-              {/*  */}
 
               <ChevronLeft
                 className="absolute top-1/2 left-2 h-8 w-8 -translate-y-1/2 cursor-pointer rounded-full bg-black text-white opacity-0 transition-all duration-300 group-hover:opacity-80"

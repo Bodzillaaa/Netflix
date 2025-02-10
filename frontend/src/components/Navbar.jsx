@@ -21,6 +21,7 @@ const Navbar = () => {
             src="/netflix-logo.png"
             alt="Netflix Logo"
             className="w-32 sm:w-40"
+            onClick={() => setContentType("movie")}
           />
         </Link>
         {/* Desktop navbar */}

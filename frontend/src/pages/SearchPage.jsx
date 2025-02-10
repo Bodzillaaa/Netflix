@@ -99,14 +99,22 @@ const SearchPage = () => {
               <div key={result.id} className="rounded bg-gray-800 p-4">
                 {/* TODO FIX HERE */}
                 {activeTab === "person" ? (
-                  <div className="flex flex-col items-center">
+                  <Link
+                    to={"/actor/" + result.id}
+                    onClick={() => {
+                      setContentType(activeTab);
+                      saveClick(result.id, activeTab);
+                    }}
+                  >
                     <img
                       src={ORIGINAL_IMG_BASE_URL + result.profile_path}
-                      alt={result.name}
-                      className="mx-auto max-h-96 rounded"
+                      alt={result.title || result.name}
+                      className="h-auto w-full rounded"
                     />
-                    <h2 className="mt-2 text-xl font-bold">{result.name}</h2>
-                  </div>
+                    <h2 className="mt-2 text-xl font-bold">
+                      {result.title || result.name}
+                    </h2>
+                  </Link>
                 ) : (
                   <Link
                     to={"/watch/" + result.id}
