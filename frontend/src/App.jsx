@@ -14,8 +14,11 @@ import SearchHistoryPage from "./pages/SearchHistoryPage";
 import { useAuthStore } from "./store/authUser";
 import NotFoundPage from "./pages/NotFoundPage";
 import Actorpage from "./pages/Actorpage";
+import useScrollToTop from "./hooks/useScrollUpTop";
 
 function App() {
+  useScrollToTop(); // This is a custom hook that scrolls to the top of the page when the location changes
+
   const { user, isCheckingAuth, authCheck } = useAuthStore();
 
   useEffect(() => {
