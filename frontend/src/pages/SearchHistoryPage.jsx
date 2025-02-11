@@ -37,8 +37,8 @@ const SearchHistoryPage = () => {
     try {
       await axios.delete(`/api/v1/search/history/${entry.id}`);
       setSearchHistory(searchHistory.filter((item) => item.id !== entry.id));
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.log(error.message);
       toast.error("Failed to delete item from history");
     }
   };
@@ -48,8 +48,8 @@ const SearchHistoryPage = () => {
       try {
         const response = await axios.get("/api/v1/search/history");
         setSearchHistory(response.data.content);
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        console.log(error.message);
         setSearchHistory([]);
       }
     };

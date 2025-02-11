@@ -13,7 +13,6 @@ export const useAuthStore = create((set) => ({
       set({ user: response.data.user, isSigningUp: false });
       toast.success("Account created successfully");
     } catch (error) {
-      console.log("Error in signup", error.message);
       toast.error(error.response.data.message || "Signup failed");
       set({ isSigningUp: false, user: null });
     }
@@ -27,7 +26,6 @@ export const useAuthStore = create((set) => ({
       set({ user: response.data.user, isLoggingIn: false });
       toast.success("Logged in successfully");
     } catch (error) {
-      console.log("Error in login", error.message);
       toast.error(error.response.data.message || "Login failed");
       set({ isLoggingIn: false, user: null });
     }
@@ -42,7 +40,6 @@ export const useAuthStore = create((set) => ({
       toast.success("Logged out successfully");
     } catch (error) {
       set({ isLoggingOut: false });
-      console.log("Error in logout", error.message);
       toast.error(error.response.data.message || "Logout failed");
     }
   },
@@ -53,8 +50,8 @@ export const useAuthStore = create((set) => ({
     try {
       const response = await axios.get("/api/v1/auth/check");
       set({ user: response.data.user, isCheckingAuth: false });
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.log("Error in auth check", error.message);
       set({ isCheckingAuth: false, user: null });
     }
   },
