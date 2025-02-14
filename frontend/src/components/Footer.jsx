@@ -13,7 +13,7 @@ const Footer = () => {
           </a>
           . For the source code {">"}{" "}
           <a
-            href="https://github.com/Bodzillaa"
+            href="https://github.com/Bodzillaaa/Netflix"
             target="_blank"
             rel="noreferrer"
             className="font-medium text-gray-400 underline underline-offset-4 hover:text-gray-300"
