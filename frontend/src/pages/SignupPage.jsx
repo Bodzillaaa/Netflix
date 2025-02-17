@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authUser";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SignupPage = () => {
   const { searchParams } = new URL(document.location);
@@ -10,7 +11,7 @@ const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { signup } = useAuthStore();
+  const { isSigningUp, signup } = useAuthStore();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -83,8 +84,11 @@ const SignupPage = () => {
               />
             </div>
 
-            <button className="w-full rounded-md bg-red-600 py-2 font-semibold text-white hover:bg-red-700">
-              Sign Up
+            <button
+              className="w-full rounded-md bg-red-600 py-2 font-semibold text-white hover:bg-red-700"
+              disabled={isSigningUp}
+            >
+              {isSigningUp ? <LoadingSpinner /> : "Sign Up"}
             </button>
           </form>
           <div className="text-center text-gray-400">

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authUser";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login } = useAuthStore();
+  const { login, isLoggingIn } = useAuthStore();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -64,7 +65,7 @@ const LoginPage = () => {
             </div>
 
             <button className="w-full rounded-md bg-red-600 py-2 font-semibold text-white hover:bg-red-700">
-              Log In
+              {isLoggingIn ? <LoadingSpinner /> : "Log in"}
             </button>
           </form>
           <div className="text-center text-gray-400">
